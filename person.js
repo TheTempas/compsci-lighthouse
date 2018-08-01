@@ -5,23 +5,32 @@ class Person {
     this.favIceCream = favIceCream
   }
   bio() {
-    console.log(`My name is ${this.name} and here's my quirky fact: ${this.quirkyFact}.`);
+    return `My name is ${this.name} and here's my quirky fact: ${this.quirkyFact}.`;
   }
   dessert() {
-    console.log(`I can't go a day without ${this.favIceCream} ice cream.`);
+    return `I can't go a day without ${this.favIceCream} ice cream.`;
   }
 }
 
 class Student extends Person {
+  bio() {
+    return `I'm a student at Lighthouse Labs. ${super.bio()}`;
+  }
+
   enroll(cohort) {
     this.cohort = cohort;
   }
 }
 
 class Mentor extends Person {
+  bio() {
+    return `I'm a mentor at Lighthouse Labs. ${super.bio()}`;
+  }
+
   goOnShift() {
     this.onShift = true;
   }
+
   goOffShift() {
     this.onShift = false;
   }
@@ -30,5 +39,5 @@ class Mentor extends Person {
 let person1 = new Person("Anna", "superhero strength", "chocolate");
 let person2 = new Person("Ben", "invisibility powers", "cookie dough")
 
-person2.bio();
-person2.dessert();
+let mentor1 = new Mentor("Cameron Smith", "baking apple strudel", "hazelnut");
+let student1 = new Student("David Johnson", "making pecan pie", "vanilla");
