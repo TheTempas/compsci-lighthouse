@@ -8,19 +8,36 @@ class Pizza {
 
   addTopping(topping) {
     this.toppings.push(topping);
+  }
 
+  get size() {
+    return this.size;
+  }
+
+  get price() {
+    let basePrice = 10;
+    let toppingPrice = 2;
+    return basePrice + (this.toppings.length * toppingPrice);
+  }
+
+  set size(size) {
+  if(size === 's' || size === 'm' || size === 'l') {
+    this.size = size;
+  }
+  else {
+    console.log("Please specify a size")
   }
 }
 
 let pizza1 = new Pizza();
-console.log(pizza1.toppings);
 pizza1.addTopping("mushrooms");
 pizza1.addTopping("peppers");
-console.log(pizza1.toppings);
 
 let pizza2 = new Pizza();
-console.log(pizza2.toppings);
 pizza2.addTopping("more cheese");
-console.log(pizza2.toppings);
 
-let pizza = new Pizza('large', 'thin')
+let pizza3 = new Pizza('large', 'thin')
+
+let pizza4 = new Pizza();
+pizza4.price;
+pizza4.price = 's';
